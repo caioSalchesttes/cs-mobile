@@ -1,5 +1,5 @@
 "use client";
-import Head from 'next/head'
+import Cookie from 'js-cookie';
 import {createClient} from '@supabase/supabase-js'
 import {useEffect, useRef, useState} from "react";
 import Article from "@/app/components/Article";
@@ -11,7 +11,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 export default function Home() {
-    let sessionId = window.sessionStorage.getItem('sessionId');
+    let sessionId = Cookie.get('sessionId');
     const titleRef = useRef();
     const descriptionRef = useRef();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -115,19 +115,9 @@ export default function Home() {
             });
         }
 
-        // Verifica se o sessionId já está presente no sessionStorage.
-        let sessionId = window.sessionStorage.getItem('sessionId');
-
-        // Se não, cria um novo sessionId e armazena no sessionStorage.
         if (!sessionId) {
             sessionId = generateUUID();
-            window.sessionStorage.setItem('sessionId', sessionId);
-        }
-
-
-        if (!sessionId) {
-            sessionId = generateUUID();
-            window.sessionStorage.setItem('sessionId', sessionId);
+            Cookie.set('sessionId', sessionId);  // set cookie
         }
 
 

@@ -10,3 +10,5 @@ Visualização de Artigos:
 
 # Acesso rápido e prático a uma variedade de artigos sobre diferentes doenças raras.
 Ranqueamento de Artigos:
+
+Link do vídeo: https://drive.google.com/file/d/1Sm1GmNpLrRk5GZyGn5jPr0FqAfNUvOii/view?usp=sharing
